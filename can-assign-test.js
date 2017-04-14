@@ -1,7 +1,7 @@
-var assign = require('./assign');
-var QUnit = require('../../test/qunit');
+var assign = require('./can-assign');
+var QUnit = require('steal-qunit');
 
-QUnit.module("can-util/js/assign");
+QUnit.module("can-assign");
 
 QUnit.test("Assign all properties to an object", function(){
 	var a = {a: 1, b: 2, d: 3};

@@ -1,12 +1,12 @@
 /**
- * @module {function} can-util/js/assign/assign assign
- * @parent can-util/js
+ * @module {function} can-assign can-assign
+ * @parent can-infrastructure
  * @signature `assign(target, source)`
  *
  * A simplified version of [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign), which only accepts a single source argument.
  *
  * ```js
- * var assign = require("can-util/js/assign/assign");
+ * var assign = require("can-assign");
  *
  * var obj = {};
  *
