@@ -4,7 +4,7 @@
  * @collection can-infrastructure
  * @signature `assign(target, source)`
  *
- * A simplified version of [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign), which only accepts a single source argument.
+ * A simplified version of [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign).
  *
  * ```js
  * var assign = require("can-assign");
@@ -19,14 +19,22 @@
  * ```
  *
  * @param {Object} target The destination object. This object's properties will be mutated based on the object provided as `source`.
- * @param {Object} source The source object whose own properties will be applied to `target`.
+ * @param {Array} sources The source objects whose own properties will be applied to `target`.
  *
  * @return {Object} Returns the `target` argument.
  */
 
-module.exports = function (d, s) {
-	for (var prop in s) {
-		d[prop] = s[prop];
+module.exports = function(d) {
+	var sources = Array.prototype.slice.call(arguments, 1);
+	var s = sources.shift();
+
+	while(s) {
+		for (var prop in s) {
+			d[prop] = s[prop];
+		}
+
+		s = sources.shift();
 	}
+
 	return d;
 };
