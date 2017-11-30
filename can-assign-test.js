@@ -13,3 +13,16 @@ QUnit.test("Assign all properties to an object", function(){
 		equal(expected[prop], actual[prop]);
 	}
 });
+
+QUnit.test("Assign all properties to an object from multiple source objects", function(){
+	var one = { a: 1, b: 1, c: 1 };
+	var two = { a: 2, b: 2 };
+	var three = { a: 3 };
+
+	var expected =  { a: 3, b: 2, c: 1 };
+	var actual = assign(one, two, three);
+
+	for (var prop in actual){
+		equal(expected[prop], actual[prop]);
+	}
+});
