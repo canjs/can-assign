@@ -1,6 +1,6 @@
 {
   "name": "can-assign",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A simplified version of Object.assign, which only accepts a single source argument.",
   "homepage": "https://canjs.com/",
   "repository": {
