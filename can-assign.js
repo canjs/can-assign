@@ -1,3 +1,4 @@
+"use strict";
 /**
  * @module {function} can-assign can-assign
  * @parent can-js-utilities
