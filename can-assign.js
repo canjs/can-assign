@@ -1,3 +1,5 @@
+var namespace = require("can-namespace");
+
 /**
  * @module {function} can-assign can-assign
  * @parent can-js-utilities
@@ -24,7 +26,7 @@
  * @return {Object} Returns the `target` argument.
  */
 
-module.exports = function (d, s) {
+module.exports = namespace.assign = function (d, s) {
 	for (var prop in s) {
 		d[prop] = s[prop];
 	}
