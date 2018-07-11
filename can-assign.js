@@ -30,7 +30,10 @@ var namespace = require("can-namespace");
 
 module.exports = namespace.assign = function (d, s) {
 	for (var prop in s) {
-		d[prop] = s[prop];
+		var desc = Object.getOwnPropertyDescriptor(d,prop);
+		if(!desc || desc.writable !== false){
+			d[prop] = s[prop];
+		}
 	}
 	return d;
 };
