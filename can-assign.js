@@ -1,5 +1,3 @@
-"use strict";
-
 var namespace = require("can-namespace");
 
 /**
