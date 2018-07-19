@@ -1,4 +1,3 @@
-"use strict";
 var stealTools = require("steal-tools");
 
 stealTools.export({
@@ -11,9 +10,9 @@ stealTools.export({
 		"+global-js": {}
 	}
 }).catch(function(e){
-	
+
 	setTimeout(function(){
 		throw e;
 	},1);
-	
+
 });

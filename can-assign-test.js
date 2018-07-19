@@ -13,3 +13,41 @@ QUnit.test("Assign all properties to an object", function(){
 		equal(expected[prop], actual[prop]);
 	}
 });
+
+QUnit.test("Works with readonly properties", function(){
+    var obj = {};
+    Object.defineProperty(obj, "a", {
+        value: "a",
+        writable: false
+    });
+
+    Object.defineProperty(obj, "b", {
+        value: "b",
+        writable: true
+    });
+
+    Object.defineProperty(obj, "c", {
+        get: function() { return "c" },
+        set: function(value){this.b = value;},
+        configurable: true
+    });
+
+    try {
+        assign(obj, {a:"c", b:"f", d: "d"});
+
+        QUnit.equal(obj.a, "a");
+				QUnit.equal(obj.b, "f");
+				QUnit.equal(obj.c, "c");
+				QUnit.equal(obj.d, "d");
+
+				assign(obj, {c:"h"});
+
+				QUnit.equal(obj.a, "a");
+				QUnit.equal(obj.b, "h");
+				QUnit.equal(obj.c, "c");
+				QUnit.equal(obj.d, "d");
+    } catch(err) {
+        QUnit.ok(false, err);
+    }
+
+});
