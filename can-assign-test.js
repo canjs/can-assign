@@ -27,8 +27,8 @@ QUnit.test("Works with readonly properties", function(){
     });
 
     Object.defineProperty(obj, "c", {
-        get: function() { return "c" },
-        set: function(value){this.b = value;},
+        get: function() { return "c"; },
+        set: function(value) { this.b = value; },
         configurable: true
     });
 
