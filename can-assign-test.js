@@ -3,18 +3,18 @@ var QUnit = require('steal-qunit');
 
 QUnit.module("can-assign");
 
-QUnit.test("Assign all properties to an object", function(){
+QUnit.test("Assign all properties to an object", function(assert) {
 	var a = {a: 1, b: 2, d: 3};
 	var b = {a: 1, b: 3, c: 2};
 	var expected =  {a: 1, b: 3, c: 2, d: 3};
 	var actual = assign(a, b);
 
 	for (var prop in actual){
-		equal(expected[prop], actual[prop]);
+		assert.equal(expected[prop], actual[prop]);
 	}
 });
 
-QUnit.test("Works with readonly properties", function(){
+QUnit.test("Works with readonly properties", function(assert) {
     var obj = {};
     Object.defineProperty(obj, "a", {
         value: "a",
@@ -35,19 +35,19 @@ QUnit.test("Works with readonly properties", function(){
     try {
         assign(obj, {a:"c", b:"f", d: "d"});
 
-        QUnit.equal(obj.a, "a");
-				QUnit.equal(obj.b, "f");
-				QUnit.equal(obj.c, "c");
-				QUnit.equal(obj.d, "d");
+        assert.equal(obj.a, "a");
+				assert.equal(obj.b, "f");
+				assert.equal(obj.c, "c");
+				assert.equal(obj.d, "d");
 
 				assign(obj, {c:"h"});
 
-				QUnit.equal(obj.a, "a");
-				QUnit.equal(obj.b, "h");
-				QUnit.equal(obj.c, "c");
-				QUnit.equal(obj.d, "d");
+				assert.equal(obj.a, "a");
+				assert.equal(obj.b, "h");
+				assert.equal(obj.c, "c");
+				assert.equal(obj.d, "d");
     } catch(err) {
-        QUnit.ok(false, err);
+        assert.ok(false, err);
     }
 
 });
