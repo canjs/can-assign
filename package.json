@@ -26,14 +26,13 @@
     "develop": "done-serve --static --develop --port 8080",
     "detect-cycle": "detect-cyclic-packages --ignore done-serve"
   },
-  "main": "dist/cjs/can-assign",
+  "main": "can-assign",
   "keywords": [
     "canjs",
     "object",
     "assign"
   ],
   "steal": {
-    "main": "can-assign",
     "configDependencies": [
       "live-reload"
     ],
