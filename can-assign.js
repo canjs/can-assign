@@ -27,11 +27,11 @@ var namespace = require("can-namespace");
  * @return {Object} Returns the `target` argument.
  */
 
-module.exports = namespace.assign = function (d, s) {
-	for (var prop in s) {
-		var desc = Object.getOwnPropertyDescriptor(d,prop);
+module.exports = namespace.assign = function (target, source) {
+	for (var prop in source) {
+		var desc = Object.getOwnPropertyDescriptor(target,prop);
 		if(!desc || desc.writable !== false){
-			d[prop] = s[prop];
+			target[prop] = source[prop];
 		}
 	}
 	return d;
