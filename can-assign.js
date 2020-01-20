@@ -34,5 +34,5 @@ module.exports = namespace.assign = function (target, source) {
 			target[prop] = source[prop];
 		}
 	}
-	return d;
+	return target;
 };
